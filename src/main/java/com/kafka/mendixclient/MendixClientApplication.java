@@ -26,10 +26,10 @@ class KafkaProducerController{
 
     private static final String TOPIC = "replicated_topic";
 
-    @GetMapping("/message/send")
-    public String sendMessage(@PathVariable("message") final String  message){
+    @GetMapping("/message/send/{strMessage}")
+    public String sendMessage(@PathVariable("strMessage") final String strMessage){
 
-        kafkaTemplate.send(TOPIC,"Hello");
+        kafkaTemplate.send(TOPIC,strMessage);
 
     return null;
     }
